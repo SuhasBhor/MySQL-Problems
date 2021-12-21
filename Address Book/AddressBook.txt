@@ -1,0 +1,41 @@
+---Use Case 1---
+	- create database Address_Book_DB;
+	- use Address_Book_DB;
+
+---Use Case 2---
+	- create table Address_Book(firstName varchar(50) , lastName varchar(50) , address varchar(100),city varchar(20), state varchar(20), zip int , phoneNumber int , email varchar(50));
+	- desc Address_Book;
+
+---Use Case 3---
+	- insert into Address_Book values("Suhas","Bhor","Marunji","Hinjewadi","MH",1234,123456,"suhas@gmail.com");
+	- insert into Address_Book values("Adinath","Jagtap","Pimpari","Pune","MH",4321,234156,"adinath@gmail.com");
+	- insert into Address_Book values("James","Potter","DL","DL","Delhi",4378,2343456,"adinath@gmail.com");
+
+---Use Case 4---
+	- update Address_Book SET state = 'Maharashtra' where firstName = 'Suhas';
+
+---Use Case 5---
+	- delete from Address_Book where firstName = "James";
+
+---Use Case 6---
+	- select * from Address_Book where city = "Hinjewadi" or state = 'MH';
+
+---Use Case 7---
+	- select COUNT(firstName) from Address_Book where city = "Hinjewadi" or state = 'MH';
+
+---Use Case 8---
+	- select city , firstName from Address_Book ORDER BY city ASC;
+
+---Use Case 9---
+	- alter Table Address_Book ADD Type varchar(30);
+	- update Address_Book SET Type = "Family" where firstName = "Suhas";
+	- update Address_Book SET Type = "Profession" where firstName = "Adinath";
+	- update Address_Book SET Type = "Friend" where firstName = "Nikhil";
+	- select * from Address_Book;
+
+---Use Case 10---
+	- select COUNT(firstName) from Address_Book where state = "MH";
+	- select COUNT(firstName) from Address_Book;
+
+---Use Case 11---
+	- insert into Address_Book values("Nikhil","Ingole","Satara","Satara","MH",44621,236786,"nikhil@gmail.com","Family");
