@@ -30,7 +30,7 @@
 	- alter Table Address_Book ADD Type varchar(30);
 	- update Address_Book SET Type = "Family" where firstName = "Suhas";
 	- update Address_Book SET Type = "Profession" where firstName = "Adinath";
-	- update Address_Book SET Type = "Friend" where firstName = "Nikhil";
+	- update Address_Book SET Type = "Friend" where firstName = "Aniket";
 	- select * from Address_Book;
 
 ---Use Case 10---
@@ -38,4 +38,4 @@
 	- select COUNT(firstName) from Address_Book;
 
 ---Use Case 11---
-	- insert into Address_Book values("Nikhil","Ingole","Satara","Satara","MH",44621,236786,"nikhil@gmail.com","Family");
+	- insert into Address_Book values("Aniket","Garade","Satara","Satara","MH",44621,236786,"aniket@gmail.com","Family");
