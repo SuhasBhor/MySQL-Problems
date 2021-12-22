@@ -1,32 +1,60 @@
 ---Use Case 1---
+
+//Ability to create a Address Book Service DB
+
 	- create database Address_Book_DB;
 	- use Address_Book_DB;
 
 ---Use Case 2---
+
+//Ability to create a Address Book Table with first and last names, address, city, state, zip, phone number and email as its attributes
+
 	- create table Address_Book(firstName varchar(50) , lastName varchar(50) , address varchar(100),city varchar(20), state varchar(20), zip int , phoneNumber int , email varchar(50));
 	- desc Address_Book;
 
 ---Use Case 3---
+
+//Ability to insert new Contacts to Address Book
+
 	- insert into Address_Book values("Suhas","Bhor","Marunji","Hinjewadi","MH",1234,123456,"suhas@gmail.com");
 	- insert into Address_Book values("Adinath","Jagtap","Pimpari","Pune","MH",4321,234156,"adinath@gmail.com");
 	- insert into Address_Book values("James","Potter","DL","DL","Delhi",4378,2343456,"adinath@gmail.com");
 
 ---Use Case 4---
+
+//Ability to edit existing contact person using their name
+
+	- Use payroll_service
 	- update Address_Book SET state = 'Maharashtra' where firstName = 'Suhas';
 
 ---Use Case 5---
+
+//Ability to delete a person using person's name
+
 	- delete from Address_Book where firstName = "James";
 
 ---Use Case 6---
+
+//Ability to Retrieve Person belonging to a City or State from the Address Book
+
 	- select * from Address_Book where city = "Hinjewadi" or state = 'MH';
 
 ---Use Case 7---
+
+//Ability to understand the size of address book by City and State
+
 	- select COUNT(firstName) from Address_Book where city = "Hinjewadi" or state = 'MH';
 
 ---Use Case 8---
+
+//Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+
 	- select city , firstName from Address_Book ORDER BY city ASC;
 
 ---Use Case 9---
+
+//Ability to identify each Address Book with name and Type
+
 	- alter Table Address_Book ADD Type varchar(30);
 	- update Address_Book SET Type = "Family" where firstName = "Suhas";
 	- update Address_Book SET Type = "Profession" where firstName = "Adinath";
@@ -34,8 +62,14 @@
 	- select * from Address_Book;
 
 ---Use Case 10---
+
+//Ability to get number of contact persons i.e. count by type
+
 	- select COUNT(firstName) from Address_Book where state = "MH";
 	- select COUNT(firstName) from Address_Book;
 
 ---Use Case 11---
+
+//Ability to add person to both Friend and Family
+
 	- insert into Address_Book values("Aniket","Garade","Satara","Satara","MH",44621,236786,"aniket@gmail.com","Family");

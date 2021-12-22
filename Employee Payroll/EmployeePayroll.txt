@@ -1,29 +1,78 @@
 ----Use Case 1----
+
+//Ability to create a payroll service database
+
 	- create database payroll_services;
 	- show databases;
 	- use payroll_services;
 
 ----Use Case 2----
+
+//Ability to create a employee payroll table in the payroll service database to manage employee payrolls
+
 	- create table employee_payroll (ID int PRIMARY KEY AUTO_INCREMENT , name varchar(50) , salary int , start_date DATE);
 
 ----Use Case 3----
+
+//Ability to create employee payroll data in the payroll service database as part of CRUD Operation
+
 	- insert into employee_payroll values(1,"Suhas",10000,'2021-12-21');
 	- insert into employee_payroll values(2,"Adinath",90000,'2020-12-21');
 
 ----Use Case 4----
+
+//Ability to retrieve all the employee payroll data that is added to payroll service database
+
 	-  select * from employee_payroll;
 
 ----Use case 5----
+
+//Ability to retrieve salary data for a particular employee as well as all employees who have joined in a particular 
+//data range from the payroll service database
+
 	- select salary from employee_payroll where name = "Adinath";
 	- select salary from employee_payroll where start_date BETWEEN CAST('2018-12-21' AS DATE) AND DATE(NOW());
 
 ----Use Case 6----
+
+//Ability to add Gender to Employee Payroll Table and Update the Rows to reflect the correct Employee Gender
+
 	- alter table employee_payroll ADD Gender varchar(10);
 	- update employee_payroll set Gender = 'M' where name = "Suhas" or name = "Adinath";
 
 ----Use Case 7----
+
+//Ability to find sum, average, min, max and number of male and female employees
+
 	- select SUM(salary) from employee_payroll where Gender = 'M' group by Gender;
 	- select AVG(salary) from employee_payroll group by Gender;
 	- select name , MAX(salary) FROM employee_payroll GROUP BY Gender;
 	- select name , MIN(salary) FROM employee_payroll GROUP BY Gender;
 	- select COUNT(name) FROM employee_payroll GROUP BY Gender;
+
+----Use Case 8----
+
+//Ability to extend employee_payroll data to store employee information like employee phone, address and department - Ensure employee department
+
+	- alter table employee_payroll add address varchar(50) default 'Maharashtra';
+	- alter table employee_payroll add phoneNumber int ;
+	- alter table employee_payroll add department varchar(50) Not Null;
+	- select * from employee_payroll;
+
+----Use Case 9----
+
+//Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay
+
+	- alter table employee_payroll add column deductions int;
+	- alter table employee_payroll rename column salary to basic_pay;
+	- alter table employee_payroll add column Taxable_Pay int;
+	- alter table employee_payroll add column Income_Tax int;
+	- alter table employee_payroll add column Net_Pay int;
+	- select * from employee_payroll;
+
+----Use Case 10----
+
+//Ability to make Terissa as part of Sales and Marketing Department
+
+	- Insert Into employee_payroll Values(4,'Terisa',20000,'2020-10-22','F',787878787,'Mumbai','Marketing',2000,1000,200,18000);
+	- select * from employee_payroll;
